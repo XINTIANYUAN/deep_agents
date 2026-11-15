@@ -1,0 +1,23 @@
+{
+  "prompt": {
+    "en": "Research what LangGraph 1.0 added vs 0.x. Cite sources. First write a short research plan, use at most three web searches for official sources, and write a concise Markdown report.",
+    "zh": "研究 LangGraph 1.0 相比 0.x 新增了什么，并引用来源。先写一份简短的研究计划，最多进行三次网页搜索以查找官方来源，再撰写一份简洁的 Markdown 报告。"
+  },
+  "researchTask": {
+    "en": "Research the official release notes and announcements for LangGraph version 1.0 and compare them with the version 0.x series. The goal is to identify key new features, improvements, and changes introduced in LangGraph 1.0 compared to the 0.x versions. The sub-agent should focus on official or authoritative sources such as the official LangGraph website, GitHub repository, and trusted documentation. The output should include a summary of main additions and changes in a concise format suitable for integration into a report, including URLs of sources.",
+    "zh": "查阅 LangGraph 1.0 的官方发布说明和公告，并与 0.x 系列对比，找出 1.0 新增的主要功能、改进和变化。优先使用 LangGraph 官网、GitHub 仓库和可靠文档等官方或权威来源。用简洁的格式概括主要变动，便于纳入报告，并附上来源网址。"
+  },
+  "todos": {
+    "Save the user research request to /research_request.md": "将用户的研究请求保存到 /research_request.md",
+    "Save user research request to /research_request.md": "将用户的研究请求保存到 /research_request.md",
+    "Search official sources for LangGraph 1.0 release notes and compare with 0.x versions": "查找 LangGraph 1.0 的官方发布说明，并与 0.x 系列对照",
+    "Analyze search results to identify key new features and changes in LangGraph 1.0 vs 0.x": "分析搜索结果，找出 LangGraph 1.0 相比 0.x 的主要新功能与变化",
+    "Write a concise Markdown report summarizing the differences, citing sources": "撰写简洁的 Markdown 报告，总结差异并引用来源"
+  },
+  "confirmations": {
+    "Updated todo list to [{'content': 'Save the user research request to /research_request.md', 'status': 'pending'}, {'content': 'Search official sources for LangGraph 1.0 release notes and compare with 0.x versions', 'status': 'pending'}, {'content': 'Analyze search results to identify key new features and changes in LangGraph 1.0 vs 0.x', 'status': 'pending'}, {'content': 'Write a concise Markdown report summarizing the differences, citing sources', 'status': 'pending'}]": "已更新待办列表 [{'content': '将用户的研究请求保存到 /research_request.md', 'status': '待处理'}, {'content': '查找 LangGraph 1.0 的官方发布说明，并与 0.x 系列对照', 'status': '待处理'}, {'content': '分析搜索结果，找出 LangGraph 1.0 相比 0.x 的主要新功能与变化', 'status': '待处理'}, {'content': '撰写简洁的 Markdown 报告，总结差异并引用来源', 'status': '待处理'}]",
+    "Updated file /research_request.md": "已更新文件 /research_request.md",
+    "Updated todo list to [{'content': 'Save user research request to /research_request.md', 'status': 'completed'}, {'content': 'Search official sources for LangGraph 1.0 release notes and compare with 0.x versions', 'status': 'completed'}, {'content': 'Analyze search results to identify key new features and changes in LangGraph 1.0 vs 0.x', 'status': 'completed'}, {'content': 'Write a concise Markdown report summarizing the differences, citing sources', 'status': 'in_progress'}]": "已更新待办列表 [{'content': '将用户的研究请求保存到 /research_request.md', 'status': '已完成'}, {'content': '查找 LangGraph 1.0 的官方发布说明，并与 0.x 系列对照', 'status': '已完成'}, {'content': '分析搜索结果，找出 LangGraph 1.0 相比 0.x 的主要新功能与变化', 'status': '已完成'}, {'content': '撰写简洁的 Markdown 报告，总结差异并引用来源', 'status': '进行中'}]",
+    "Updated file /final_report.md": "已更新文件 /final_report.md"
+  }
+}

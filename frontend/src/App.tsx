@@ -5,6 +5,7 @@ import remarkGfm from "remark-gfm";
 import TodoList, { type TodoItem } from "./TodoList";
 import ThinkingBlock from "./ThinkingBlock";
 import ToolCallCard, { type ToolCard } from "./ToolCallCard";
+import { task1Prompt, task1Prose, task1Todo, task1Tool } from "./task1Translations";
 
 type RawToolCall = { id?: string; name?: string; args?: unknown };
 type Message = {
@@ -135,6 +136,9 @@ export default function App() {
   const rows = useMemo(() => buildRows(stream.messages as Message[]), [stream.messages]);
   const todos = Array.isArray(stream.values?.todos) ? stream.values.todos : [];
 
+  const bilingual = rows.some((row) => row.kind === "prose" && row.type === "human" && row.body === task1Prompt);
+  const label = (english: string, chinese: string) => bilingual ? `${chinese} / ${english}` : english;
+
   function onSubmit(event: FormEvent) {
     event.preventDefault();
     const text = input.trim();
@@ -145,50 +149,59 @@ export default function App() {
 
   return (
     <main>
-      <h1>Research Deep Agent</h1>
-      <section className="thread-banner" aria-label="Session link">
+      <h1>{label("Research Deep Agent", "深度研究助手")}</h1>
+      <section className="thread-banner" aria-label={label("Session link", "会话链接")}>
         <div className="thread-banner__copy">
-          <strong>{threadId ? "Session link active" : "Session link ready"}</strong>
+          <strong>{threadId ? label("Session link active", "会话链接已生效") : "Session link ready"}</strong>
           <span>
             {threadId
-              ? "Reopen this conversation later with the current URL."
+              ? label("Reopen this conversation later with the current URL.", "以后可用当前网址重新打开此会话。")
               : "After the first message, this page adds a thread URL so you can reopen the same conversation later."}
           </span>
         </div>
         {sessionUrl ? <code className="thread-banner__url">{sessionUrl}</code> : null}
       </section>
-      <TodoList todos={todos} />
+      <TodoList todos={todos} translate={bilingual ? task1Todo : undefined} />
 
-      <section className="chat" aria-label="Research conversation">
+      <section className="chat" aria-label={label("Research conversation", "研究会话")}>
         {rows.length === 0 && (
           <p className="hint">
             Try: <em>"Research what LangGraph 1.0 added vs 0.x. Cite sources."</em>
           </p>
         )}
-        {rows.map((row) =>
-          row.kind === "prose" ? (
+        {rows.map((row) => {
+          if (row.kind === "plan") return <ThinkingBlock key={row.key} body={row.body} />;
+          if (row.kind === "card") {
+            return <ToolCallCard key={row.key} card={row.card} translation={bilingual ? task1Tool(row.card) : undefined} />;
+          }
+
+          const translated = bilingual ? task1Prose(row.body) : undefined;
+          return (
             <article key={row.key} className={`msg msg--${row.type}`}>
-              <header className="msg__role">{row.type}</header>
-              <div className="msg__body">
+              <header className="msg__role">{label(row.type, row.type === "human" ? "提问" : "研究助手")}</header>
+              {translated && (
+                <div className="msg__body translation" lang="zh-CN">
+                  <p className="translation__label">中文</p>
+                  <ReactMarkdown remarkPlugins={[remarkGfm]}>{translated}</ReactMarkdown>
+                </div>
+              )}
+              <div className={`msg__body${translated ? " translation translation--original" : ""}`} lang={translated ? "en" : undefined}>
+                {translated && <p className="translation__label">English</p>}
                 <ReactMarkdown remarkPlugins={[remarkGfm]}>{row.body}</ReactMarkdown>
               </div>
             </article>
-          ) : row.kind === "plan" ? (
-            <ThinkingBlock key={row.key} body={row.body} />
-          ) : (
-            <ToolCallCard key={row.key} card={row.card} />
-          ),
-        )}
+          );
+        })}
         {stream.isLoading && (
-          <div className="activity-card" aria-live="polite" aria-label="Research in progress">
+          <div className="activity-card" aria-live="polite" aria-label={label("Research in progress", "研究进行中")}>
             <div className="activity-card__pulse" aria-hidden="true">
               <span />
               <span />
               <span />
             </div>
             <div className="activity-card__copy">
-              <strong>Research in progress</strong>
-              <span>Waiting for sub-agent results and final synthesis.</span>
+              <strong>{label("Research in progress", "研究进行中")}</strong>
+              <span>{label("Waiting for sub-agent results and final synthesis.", "正在等待子 Agent 的结果和最终汇总。")}</span>
             </div>
           </div>
         )}
@@ -200,12 +213,12 @@ export default function App() {
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="Ask a research question…"
+          placeholder={label("Ask a research question…", "输入研究问题…")}
           disabled={stream.isLoading}
           autoFocus
         />
         <button type="submit" disabled={stream.isLoading || !input.trim()}>
-          Send
+          {label("Send", "发送")}
         </button>
       </form>
     </main>

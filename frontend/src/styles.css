@@ -430,3 +430,20 @@ code {
   .tool-card--done { background: rgba(80, 180, 110, 0.06); }
   .tool-card__code { background: rgba(255, 255, 255, 0.06); }
 }
+
+.todo-list__translation { display: block; font-weight: 600; }
+
+.translation { overflow-x: auto; }
+
+.translation--original {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--thread-banner-border);
+}
+
+.translation__label {
+  margin: 0 0 0.35rem;
+  color: var(--thread-banner-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+}

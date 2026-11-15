@@ -2,6 +2,7 @@
 import { act, cleanup, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import App from "./App";
+import { task1Prompt, task1ReportEn } from "./task1Translations";
 
 const streamState: {
   values: { todos?: Array<{ content: string; status: "completed" | "in_progress" | "pending" }> };
@@ -247,6 +248,43 @@ describe("App", () => {
     expect(screen.getByText("Session link active")).toBeTruthy();
     expect(screen.getByText("Reopen this conversation later with the current URL.")).toBeTruthy();
     expect(screen.getByText("http://localhost:3000/?thread=thread-123")).toBeTruthy();
+  });
+
+  it("opens the saved Task 1 thread with bilingual output and its original sources", () => {
+    const threadId = "task1-example";
+    const search = `?thread=${threadId}`;
+    window.history.replaceState({}, "", `/${search}`);
+    streamState.submit.mockClear();
+    streamState.values = {
+      todos: [
+        {
+          content: "Search official sources for LangGraph 1.0 release notes and compare with 0.x versions",
+          status: "completed",
+        },
+      ],
+    };
+    streamState.messages = [
+      { id: "human-task1", type: "human", content: task1Prompt },
+      { id: "report-task1", type: "ai", content: task1ReportEn },
+    ];
+
+    const { container } = render(<App />);
+
+    expect(screen.getByText("Comparison of LangGraph 1.0 vs. 0.x Series")).toBeTruthy();
+    expect(screen.getByText("LangGraph 1.0 与 0.x 系列对比")).toBeTruthy();
+    const planItem = screen.getByText(
+      "Search official sources for LangGraph 1.0 release notes and compare with 0.x versions",
+    ).closest("li");
+    expect(planItem?.textContent).toMatch(/官方/);
+    const sources = Array.from(container.querySelectorAll("a"), (link) => link.href);
+    expect(sources).toEqual(expect.arrayContaining([
+      "https://docs.langchain.com/oss/python/releases/langgraph-v1",
+      "https://docs.langchain.com/oss/python/releases/changelog",
+      "https://github.com/langchain-ai/langgraph/releases",
+    ]));
+    expect(capturedStreamOptions?.threadId).toBe(threadId);
+    expect(window.location.search).toBe(search);
+    expect(streamState.submit).not.toHaveBeenCalled();
   });
 
   it("skips the todo panel when the backend has not emitted todos yet", () => {
