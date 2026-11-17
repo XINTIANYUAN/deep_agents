@@ -10,6 +10,15 @@
 | [学习心得](docs/task1/learning-reflections.md) | 从实操中学到的排查、验收和 Trace 分析方法 |
 | [课程反馈](docs/task1/course-feedback.md) | 结合实测给课程材料的改进建议 |
 
+## Task2 第一个 Deep Agent
+
+| 入口 | 内容 |
+| --- | --- |
+| [可运行示例](examples/task2/agent.py) | 用本地模型调用模拟天气和计算器工具 |
+| [学习笔记](docs/task2/learning-notes.md) | 运行命令、排查过程、验收记录和 LangSmith 截图 |
+| [学习心得](docs/task2/learning-reflections.md) | 三层架构、工具参数和调用链的实操体会 |
+| [课程反馈](docs/task2/course-feedback.md) | 对第 1、2 章的改进建议 |
+
 ## 本地运行
 
 先按[学习笔记](docs/task1/learning-notes.md)配置 Python、Node.js、uv 和 `.env`。然后在项目根目录执行：
