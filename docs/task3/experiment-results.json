@@ -1,0 +1,112 @@
+{
+  "date": "2026-11-20T23:37:48.556191+08:00",
+  "environment": {
+    "python": "3.13.16",
+    "deepagents": "0.7.8",
+    "model": "qwen3.5:4b",
+    "model_endpoint": "http://127.0.0.1:11434/v1"
+  },
+  "files": {
+    "model": "qwen3.5:4b",
+    "trace_project": "deepagents-task3",
+    "llm_messages": 4,
+    "tool_calls": [
+      {
+        "name": "write_file",
+        "args": {
+          "file_path": "/notes/task3.md",
+          "content": "# Task3\nContext Engineering uses files on demand.\nBackend controls storage."
+        }
+      },
+      {
+        "name": "read_file",
+        "args": {
+          "file_path": "/notes/task3.md"
+        }
+      },
+      {
+        "name": "grep",
+        "args": {
+          "pattern": "Context Engineering",
+          "path": "/notes/",
+          "output_mode": "content"
+        }
+      }
+    ],
+    "final_answer": "**简述：**\n1. **write_file**：成功在 `/notes/task3.md` 写入三行内容（标题 + 两行说明）\n2. **read_file**：正确读取文件，显示完整三行内容\n3. **grep**：按字面搜索 \"Context Engineering\"，找到 1 个匹配项，位于 `task3.md` 第 2 行\n\n读写操作成功完成，搜索结果确认文本已正确写入文件。",
+    "virtual_path": "/notes/task3.md",
+    "stored_note": "# Task3\nContext Engineering uses files on demand.\nBackend controls storage.",
+    "cloud_verified": true
+  },
+  "offload": {
+    "model": "qwen3.5:4b",
+    "trace_project": "deepagents-task3",
+    "llm_messages": 3,
+    "tool_calls": [
+      {
+        "name": "large_result",
+        "args": {}
+      },
+      {
+        "name": "read_file",
+        "args": {
+          "file_path": "/large_tool_results/call_8wbsdb0k",
+          "offset": 1200,
+          "limit": 1
+        }
+      }
+    ],
+    "final_answer": "Read relevant data on demand.",
+    "threshold_estimated_tokens": 20000,
+    "threshold_characters": 80000,
+    "original_characters": 285492,
+    "replacement_characters": 1733,
+    "saved_full_content_sha256": "030b04431e51a97dc6b167fec69230edfbf6c3a1c3c899572b396fe03605f89c",
+    "virtual_path": "/large_tool_results/call_8wbsdb0k",
+    "replacement_tool_message": "Tool result too large, the result of this tool call call_8wbsdb0k was saved in the filesystem at this path: /large_tool_results/call_8wbsdb0k\n\nYou can read the result from the filesystem by using the read_file tool, but make sure to only read part of the result at a time.\n\nYou can do this by specifying an offset and limit in the read_file tool call. For example, to read the first 100 lines, you can use the read_file tool with offset=0 and limit=100.\n\nHere is a preview showing the head and tail of the result (lines of the form `... [N lines truncated] ...` indicate omitted lines in the middle of the content):\n\n1  TASK3_HEAD Synthetic public experiment data\n2  Record 0001 | Store source material in files. Read only relevant pages. Context Engineering keeps model input focused.\n3  Record 0002 | Store source material in files. Read only relevant pages. Context Engineering keeps model input focused.\n4  Record 0003 | Store source material in files. Read only relevant pages. Context Engineering keeps model input focused.\n5  Record 0004 | Store source material in files. Read only relevant pages. Context Engineering keeps model input focused.\n... [2391 lines truncated] ...\n2397  Record 2396 | Store source material in files. Read only relevant pages. Context Engineering keeps model input focused.\n2398  Record 2397 | Store source material in files. Read only relevant pages. Context Engineering keeps model input focused.\n2399  Record 2398 | Store source material in files. Read only relevant pages. Context Engineering keeps model input focused.\n2400  Record 2399 | Store source material in files. Read only relevant pages. Context Engineering keeps model input focused.\n2401  TASK3_TAIL End of synthetic experiment data\n",
+    "readback": "1201  TASK3_NEEDLE=Read relevant data on demand.\n\n[Read 1 line (lines 1201-1201 of 2401 total). 1200 lines remaining from offset 1201.]",
+    "cloud_verified": true,
+    "cloud_leaf_sequence": [
+      "ChatOpenAI",
+      "large_result",
+      "ChatOpenAI",
+      "read_file",
+      "ChatOpenAI"
+    ],
+    "cloud_all_runs_completed_without_error": true
+  },
+  "backends": [
+    {
+      "backend": "state",
+      "same_thread": true,
+      "other_thread_same_resources": false,
+      "rebuilt_graph_same_resources": true,
+      "fresh_process": false
+    },
+    {
+      "backend": "filesystem",
+      "same_thread": true,
+      "other_thread_same_resources": true,
+      "rebuilt_graph_same_resources": true,
+      "fresh_process": true
+    },
+    {
+      "backend": "store",
+      "same_thread": true,
+      "other_thread_same_resources": true,
+      "rebuilt_graph_same_resources": true,
+      "fresh_process": false
+    }
+  ],
+  "backend_setup": {
+    "checkpoint": "InMemorySaver",
+    "store": "InMemoryStore",
+    "store_namespace": [
+      "task3",
+      "learner"
+    ],
+    "filesystem_root": "<本次数据目录>/disk",
+    "virtual_mode": true,
+    "restart_check": "每组启动独立 Python 子进程，重新创建内存 Saver 与 Store，复用同一磁盘根目录。"
+  }
+}

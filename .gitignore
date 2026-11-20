@@ -15,3 +15,6 @@ frontend/dist/
 
 # Env
 .env
+
+# Task3 generated experiment data
+.task3-runs/

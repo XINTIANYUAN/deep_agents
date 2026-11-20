@@ -19,6 +19,15 @@
 | [学习心得](docs/task2/learning-reflections.md) | 三层架构、工具参数和调用链的实操体会 |
 | [课程反馈](docs/task2/course-feedback.md) | 对第 1、2 章的改进建议 |
 
+## Task3 虚拟文件系统
+
+| 入口 | 内容 |
+| --- | --- |
+| [可运行实验](examples/task3/filesystem_lab.py) | 文件读写与搜索、大结果自动卸载、三种 Backend 对比 |
+| [学习笔记](docs/task3/learning-notes.md) | 复现命令、实测记录、Trace 截图和存储对比结论 |
+| [学习心得](docs/task3/learning-reflections.md) | 按需取用上下文与文件生命周期的实操体会 |
+| [课程反馈](docs/task3/course-feedback.md) | 对第 3 章实验设计与验收方式的建议 |
+
 ## 本地运行
 
 先按[学习笔记](docs/task1/learning-notes.md)配置 Python、Node.js、uv 和 `.env`。然后在项目根目录执行：
