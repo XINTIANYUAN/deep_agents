@@ -28,6 +28,16 @@
 | [学习心得](docs/task3/learning-reflections.md) | 按需取用上下文与文件生命周期的实操体会 |
 | [课程反馈](docs/task3/course-feedback.md) | 对第 3 章实验设计与验收方式的建议 |
 
+## Task4 任务规划与分解
+
+| 入口 | 内容 |
+| --- | --- |
+| [可运行研究 Agent](examples/task4/research_agent.py) | 显式启用待办规划，检索三大 Harness 并写报告 |
+| [学习笔记](docs/task4/learning-notes.md) | 状态流转、复现命令、实测记录和问题复盘 |
+| [学习心得](docs/task4/learning-reflections.md) | 把清单、实际工具和报告放在一起验收 |
+| [课程反馈](docs/task4/course-feedback.md) | 对第 4 章示例与验收流程的建议 |
+| [研究报告](docs/task4/research-report.md) | 基于官方文档的三大 Harness 简要对比 |
+
 ## 本地运行
 
 先按[学习笔记](docs/task1/learning-notes.md)配置 Python、Node.js、uv 和 `.env`。然后在项目根目录执行：

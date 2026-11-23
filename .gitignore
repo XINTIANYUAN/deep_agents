@@ -18,3 +18,6 @@ frontend/dist/
 
 # Task3 generated experiment data
 .task3-runs/
+
+# Task4 generated research data
+.task4-runs/
