@@ -38,6 +38,16 @@
 | [课程反馈](docs/task4/course-feedback.md) | 对第 4 章示例与验收流程的建议 |
 | [研究报告](docs/task4/research-report.md) | 基于官方文档的三大 Harness 简要对比 |
 
+## Task5 子 Agent 与上下文隔离
+
+| 入口 | 内容 |
+| --- | --- |
+| [可运行协作示例](examples/task5/subagent_pipeline.py) | 研究员收集分析、写手成文、主 Agent 验收 |
+| [学习笔记](docs/task5/learning-notes.md) | 角色设计、复现命令、隔离检测与实测记录 |
+| [学习心得](docs/task5/learning-reflections.md) | 委派、共享文件和产物复核的体会 |
+| [课程反馈](docs/task5/course-feedback.md) | 对第 5 章示例和验收方式的建议 |
+| [流水线报告](docs/task5/pipeline-report.md) | 上下文隔离与共享文件的中文复核稿 |
+
 ## 本地运行
 
 先按[学习笔记](docs/task1/learning-notes.md)配置 Python、Node.js、uv 和 `.env`。然后在项目根目录执行：
