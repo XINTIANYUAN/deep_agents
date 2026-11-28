@@ -24,3 +24,6 @@ frontend/dist/
 
 # Task5 generated experiment data
 .task5-runs/
+
+# Task6 isolated server, environment and experiment data
+.task6-runs/

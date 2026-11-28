@@ -48,6 +48,18 @@
 | [课程反馈](docs/task5/course-feedback.md) | 对第 5 章示例和验收方式的建议 |
 | [流水线报告](docs/task5/pipeline-report.md) | 上下文隔离与共享文件的中文复核稿 |
 
+## Task6 异步子 Agent 与 Skills
+
+| 入口 | 内容 |
+| --- | --- |
+| [异步生命周期代码](examples/task6/run_lifecycle.py) | 独立 Agent Server 上启动、追加、并行、查询、取消与续跑 |
+| [Skills 演示代码](examples/task6/skills_demo.py) | 从描述发现技能，读取正文与参考规则，再写入验收说明 |
+| [SKILL.md](examples/task6/skills/lifecycle-review/SKILL.md) | 可复用的异步生命周期验收能力包 |
+| [学习笔记](docs/task6/learning-notes.md) | 环境、运行命令、踩坑、验收日志与逐轮披露记录 |
+| [学习心得](docs/task6/learning-reflections.md) | 调度、任务标识、取消与按需加载的体会 |
+| [课程反馈](docs/task6/course-feedback.md) | 对第 6、7 章复现和验收方式的建议 |
+| [实验记录](docs/task6/experiment-results.json) | 生命周期与 Skills 的实测检查结果 |
+
 ## 本地运行
 
 先按[学习笔记](docs/task1/learning-notes.md)配置 Python、Node.js、uv 和 `.env`。然后在项目根目录执行：

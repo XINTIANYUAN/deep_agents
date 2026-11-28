@@ -1,0 +1,7 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "task6_supervisor": "./graphs.py:supervisor",
+    "task6_worker": "./graphs.py:worker"
+  }
+}

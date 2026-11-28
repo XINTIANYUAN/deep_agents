@@ -1,0 +1,9 @@
+deepagents==0.7.8
+langchain-openai==1.6.7
+langgraph==1.2.14
+langgraph-sdk==0.4.6
+langsmith==0.14.4
+langgraph-cli[inmem]==0.4.44
+langgraph-api==0.18.0
+langgraph-runtime-inmem==0.38.6
+python-dotenv==1.2.4
